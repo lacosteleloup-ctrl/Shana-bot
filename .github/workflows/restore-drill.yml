@@ -4,10 +4,9 @@ on:
   schedule:
     - cron: '0 4 * * 1'
   workflow_dispatch:
-
 jobs:
   restore-drill:
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-medium-4c-8g
 
     services:
       postgres:
@@ -23,7 +22,6 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-
     env:
       POSTGRES_URL: postgresql://titanbot:titanbot@localhost:5432/titanbot
       POSTGRES_HOST: localhost
